@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PINK DIWAA | Sports Day</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+<header class="topbar">
+
+  <a class="brand" href="#" data-page="home">PINK RUSH<span>.</span></a>
+
+  <nav>
+
+    <button class="nav-btn" data-page="home">หน้าหลัก</button>
+
+    <button class="nav-btn" data-page="activities">สมัครกิจกรรม</button>
+
+    <button class="nav-btn" data-page="login">Admin</button>
+
+  </nav>
+
+</header>
+
+
+
+<main>
+
+
+
+  <!-- HOME -->
+
+  <section id="home" class="page">
+
+    <section class="hero">
+
+      <span class="eyebrow">WELCOME TO</span>
+
+      <h1>เว็บไซต์กีฬาสีชมพู<span>.</span></h1>
+
+      <h2>SPORTS DAY</h2>
+
+      <p>เปิดรับสมัครนักกีฬาและทีมงานกิจกรรมกีฬาสี</p>
+
+      <button class="btn-primary" data-go="activities">เลือกกิจกรรม →</button>
+
+    </section>
+
+
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="eyebrow">OUR ACTIVITIES</span>
+
+          <h2>กิจกรรมของเรา</h2>
+
+        </div>
+
+        <button class="btn-outline" data-go="activities">ดูกิจกรรมทั้งหมด →</button>
+
+      </div>
+
+      <div id="homeActivityGrid" class="activity-grid"></div>
+
+    </section>
+
+
+
+    <section class="section staff-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="eyebrow">OUR TEAM</span>
+
+          <h2>ทีมงานสตาฟ</h2>
+
+        </div>
+
+        <span class="muted">ทีมงานผู้ดูแลแต่ละกีฬา</span>
+
+      </div>
+
+      <div id="staffList" class="staff-grid"></div>
+
+    </section>
+
+  </section>
+
+
+
+  <!-- ACTIVITIES -->
+
+  <section id="activities" class="page hidden">
+
+    <div class="page-heading">
+
+      <span class="eyebrow">CHOOSE YOUR ACTIVITY</span>
+
+      <h1>เลือกกิจกรรมที่สนใจ</h1>
+
+      <p>เลือกกีฬา หรือกิจกรรมที่ต้องการสมัคร</p>
+
+    </div>
+
+    <div id="activityGrid" class="activity-grid"></div>
+
+  </section>
+
+
+
+  <!-- SPORT DETAIL -->
+
+  <section id="sportPage" class="page hidden">
+
+    <button class="back-btn" id="backActivities">← กลับไปหน้ากิจกรรม</button>
+
+
+
+    <div class="sport-detail">
+
+      <div class="sport-icon" id="sportIcon">⚽</div>
+
+      <span class="eyebrow">ACTIVITY REGISTRATION</span>
+
+      <h1 id="sportTitle">ฟุตบอล</h1>
+
+      <p id="sportDescription"></p>
+
+      <p class="capacity-text" id="sportCapacity"></p>
+
+
+
+      <form id="registerForm" class="form-card">
+
+        <input type="hidden" id="activityName">
+
+        <div id="sportCategoryWrap" class="hidden">
+          <label for="sportCategory">ประเภทการแข่งขัน *</label>
+          <select id="sportCategory">
+            <option value="">เลือกประเภทการแข่งขัน</option>
+          </select>
+        </div>
+
+        <h2>แบบฟอร์มสมัครกิจกรรม</h2>
+
+
+
+        <label for="studentName">ชื่อ - นามสกุล \*</label>
+
+        <input id="studentName" required maxlength="100" placeholder="กรอกชื่อและนามสกุล">
+
+
+
+        <div class="form-row">
+
+          <div>
+
+            <label for="classroom">ชั้น / ห้อง \*</label>
+
+            <input id="classroom" required maxlength="30" placeholder="เช่น ม.6/1">
+
+          </div>
+
+          <div>
+
+            <label for="studentNumber">เลขที่</label>
+
+            <input id="studentNumber" maxlength="10" placeholder="เลขที่">
+
+          </div>
+
+        </div>
+
+
+
+        <label for="phone">เบอร์โทรศัพท์</label>
+
+        <input id="phone" type="tel" maxlength="20" placeholder="เบอร์โทรศัพท์">
+
+
+
+        <label for="note">หมายเหตุเพิ่มเติม</label>
+
+        <textarea id="note" rows="3" maxlength="500" placeholder="ข้อมูลเพิ่มเติม (ถ้ามี)"></textarea>
+
+
+
+        <button type="submit" class="btn-primary full-btn">ส่งใบสมัคร →</button>
+
+        <p id="registerMessage" class="form-message"></p>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- LOGIN -->
+
+  <section id="login" class="page hidden login-page">
+
+    <div class="login-card">
+
+      <div class="login-brand">PINK RUSH<span>.</span></div>
+
+      <p class="eyebrow">ADMINISTRATION SYSTEM</p>
+
+      <h1>เข้าสู่ระบบหลังบ้าน</h1>
+
+
+
+      <form id="loginForm">
+
+        <label for="username">Username</label>
+
+        <input id="username" autocomplete="username" required placeholder="Username">
+
+
+
+        <label for="password">Password</label>
+
+        <input id="password" type="password" autocomplete="current-password" required placeholder="Password">
+
+
+
+        <button type="submit" class="btn-primary full-btn">เข้าสู่ระบบ</button>
+
+        <p id="loginError" class="form-message error"></p>
+
+      </form>
+
+
+
+      <button class="back-btn" data-go="home">← กลับหน้าหลัก</button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ADMIN -->
+
+  <section id="admin" class="page hidden admin-page">
+
+    <div class="admin-heading">
+
+      <div>
+
+        <span class="eyebrow">ADMINISTRATION</span>
+
+        <h1>จัดการระบบ</h1>
+
+        <p class="muted">PINK RUSH CONTROL CENTER</p>
+
+      </div>
+
+      <button id="logoutBtn" class="btn-outline">ออกจากระบบ ↗</button>
+
+    </div>
+
+
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+
+        <span>ผู้สมัครทั้งหมด</span>
+
+        <strong id="totalCount">0</strong>
+
+      </div>
+
+      <div class="stat-card">
+
+        <span>รอตรวจสอบ</span>
+
+        <strong id="pendingCount">0</strong>
+
+      </div>
+
+      <div class="stat-card">
+
+        <span>ผ่าน</span>
+
+        <strong id="passCount">0</strong>
+
+      </div>
+
+      <div class="stat-card">
+
+        <span>ไม่ผ่าน</span>
+
+        <strong id="failCount">0</strong>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="admin-tabs">
+
+      <button class="admin-tab active" data-admin="applicants">จัดการผู้สมัคร</button>
+
+      <button class="admin-tab" data-admin="activities">จัดการกีฬา</button>
+      <button class="admin-tab" data-admin="limits">จัดการจำนวนรับ</button>
+
+      <button class="admin-tab" data-admin="staff">จัดการทีมสตาฟ</button>
+
+      <button class="admin-tab" data-admin="backup">สำรองข้อมูล</button>
+
+    </div>
+
+
+
+    <!-- APPLICANTS PANEL -->
+
+    <section id="applicantsPanel" class="admin-panel">
+
+      <div class="panel-card">
+
+
+
+        <div id="printHeader" class="print-header">
+
+          <div>
+
+            <h1 id="printActivityTitle">ทุกกิจกรรม</h1>
+
+            <p id="printStatusTitle">รายชื่อผู้สมัครทั้งหมด</p>
+
+            <p id="printCount"></p>
+
+          </div>
+
+          <div class="print-brand">
+
+            PINK RUSH
+
+            <small>SPORTS DAY</small>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="filter-row">
+
+          <input id="searchInput" placeholder="ค้นหาชื่อ / ชั้น / ห้อง...">
+
+
+
+          <select id="activityFilter">
+
+            <option value="">ทุกกิจกรรม</option>
+
+          </select>
+
+
+
+          <select id="categoryFilter">
+            <option value="">ทุกระดับ / ทุกเพศ</option>
+          </select>
+
+          <select id="statusFilter">
+
+            <option value="">ทุกสถานะ</option>
+
+            <option value="รอตรวจสอบ">รอตรวจสอบ</option>
+
+            <option value="ผ่าน">ผ่าน</option>
+
+            <option value="ไม่ผ่าน">ไม่ผ่าน</option>
+
+          </select>
+
+        </div>
+
+
+
+        <div class="status-tabs">
+
+          <button class="status-tab active" data-status="">ทั้งหมด</button>
+
+          <button class="status-tab" data-status="รอตรวจสอบ">รอตรวจสอบ</button>
+
+          <button class="status-tab" data-status="ผ่าน">ผ่าน</button>
+
+          <button class="status-tab" data-status="ไม่ผ่าน">ไม่ผ่าน</button>
+
+        </div>
+
+
+
+        <div class="table-wrap">
+
+          <table id="applicantPrintTable">
+
+            <thead>
+
+              <tr>
+
+                <th>ชื่อ - นามสกุล / ชั้น</th>
+
+                <th>กิจกรรม</th>
+
+                <th>สถานะ</th>
+
+                <th class="print-phone-heading">เบอร์โทรศัพท์</th>
+
+                <th class="screen-actions">จัดการ</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody id="applicantTable"></tbody>
+
+          </table>
+
+        </div>
+
+
+
+        <div class="table-actions screen-actions">
+
+          <button id="exportBtn" class="btn-soft">↓ Export CSV</button>
+
+
+
+          <div class="pdf-controls">
+
+            <label for="paperOrientation">ขนาดกระดาษ</label>
+
+            <select id="paperOrientation">
+
+              <option value="portrait">A4 แนวตั้ง</option>
+
+              <option value="landscape">A4 แนวนอน</option>
+
+            </select>
+
+            <button id="printBtn" class="btn-primary">↓ ดาวน์โหลด PDF</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ACTIVITIES MANAGEMENT PANEL -->
+    <section id="activitiesPanel" class="admin-panel hidden">
+      <div class="panel-card">
+        <h2>จัดการกีฬาและกิจกรรม</h2>
+        <p class="muted">เพิ่ม แก้ไข หรือลบรายการกีฬา ซึ่งจะแสดงในหน้าสมัครกิจกรรมทันที</p>
+        <form id="activityForm" class="activity-admin-form">
+          <input type="hidden" id="activityId">
+          <label for="activityNameAdmin">ชื่อกีฬา / กิจกรรม</label>
+          <input id="activityNameAdmin" required maxlength="60" placeholder="เช่น ฟุตซอล">
+          <label for="activityIconAdmin">ไอคอน (Emoji)</label>
+          <input id="activityIconAdmin" required maxlength="8" value="🏅" placeholder="เช่น ⚽">
+          <label for="activityDescAdmin">คำอธิบาย</label>
+          <textarea id="activityDescAdmin" rows="2" maxlength="180" placeholder="รายละเอียดกิจกรรม"></textarea>
+          <div class="table-actions">
+            <button type="submit" class="btn-primary" id="activitySubmit">+ เพิ่มกีฬา</button>
+            <button type="button" class="btn-outline hidden" id="cancelActivityEdit">ยกเลิก</button>
+          </div>
+        </form>
+        <h3>รายการกีฬาทั้งหมด</h3>
+        <div class="table-wrap">
+          <table class="activity-admin-table">
+            <thead><tr><th>ไอคอน</th><th>ชื่อกีฬา</th><th>คำอธิบาย</th><th>ผู้สมัคร</th><th>จัดการกีฬาและประเภทการแข่งขัน</th></tr></thead>
+            <tbody id="activityAdminTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIMITS PANEL -->
+
+    <section id="limitsPanel" class="admin-panel hidden">
+
+      <div class="panel-card">
+
+        <h2>จัดการจำนวนรับแต่ละกิจกรรม</h2>
+
+        <p class="muted">กำหนดจำนวนสูงสุดของผู้สมัครแต่ละกีฬา</p>
+
+        <div id="limitList" class="limit-list"></div>
+
+        <button id="saveLimits" class="btn-primary">บันทึกจำนวนรับ</button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- STAFF PANEL -->
+
+    <section id="staffPanel" class="admin-panel hidden">
+
+      <div class="panel-card">
+
+        <h2>จัดการทีมงานสตาฟ</h2>
+
+        <p class="muted">เพิ่มรายชื่อสตาฟแยกตามกีฬา พร้อมเบอร์โทรศัพท์</p>
+
+
+
+        <form id="staffForm" class="staff-admin-form">
+
+          <input type="hidden" id="staffId">
+
+
+
+          <label for="staffActivity">เลือกกีฬา</label>
+
+          <select id="staffActivity" required></select>
+
+
+
+          <label for="staffName">ชื่อ - นามสกุล</label>
+
+          <input id="staffName" required maxlength="100" placeholder="ชื่อสตาฟ">
+
+
+
+          <label for="staffPhone">เบอร์โทรศัพท์</label>
+
+          <input id="staffPhone" type="tel" required maxlength="20" placeholder="เช่น 0812345678">
+
+
+
+          <div class="table-actions">
+
+            <button type="submit" class="btn-primary" id="staffSubmit">+ เพิ่มรายชื่อสตาฟ</button>
+
+            <button type="button" class="btn-outline hidden" id="cancelStaffEdit">ยกเลิก</button>
+
+          </div>
+
+        </form>
+
+
+
+        <h3>รายชื่อสตาฟทั้งหมด</h3>
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>กีฬา</th>
+
+                <th>ชื่อ - นามสกุล</th>
+
+                <th>เบอร์โทรศัพท์</th>
+
+                <th>จัดการ</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody id="staffAdminTable"></tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- BACKUP PANEL -->
+
+    <section id="backupPanel" class="admin-panel hidden">
+
+      <div class="panel-card">
+
+        <h2>สำรองและกู้คืนข้อมูล</h2>
+
+        <p class="muted">สำรองรายชื่อผู้สมัคร จำนวนรับ และรายชื่อสตาฟไว้ในไฟล์ JSON</p>
+
+
+
+        <div class="backup-actions">
+
+          <button id="backupBtn" class="btn-primary">↓ ดาวน์โหลดข้อมูลสำรอง</button>
+
+          <label class="btn-outline file-label" for="restoreFile">↑ นำเข้าข้อมูลสำรอง</label>
+
+          <input type="file" id="restoreFile" accept=".json,application/json" hidden>
+
+        </div>
+
+
+
+        <p class="muted small-text">
+
+          การนำเข้าข้อมูลจะเขียนทับข้อมูลเดิมในเบราว์เซอร์นี้
+
+        </p>
+
+      </div>
+
+    </section>
+
+  </section>
+
+
+
+</main>
+
+
+
+<footer>
+
+  PINK RUSH | SPORTS DAY
+
+</footer>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
